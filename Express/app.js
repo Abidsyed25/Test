@@ -16,7 +16,7 @@ const filestorage = multer.diskStorage({
     }
 })
 const upload = multer({ storage: filestorage });
-
+const port = process.env.PORT || 8000;
 
 server.use(cookieParser());
 mongoose.connect("mongodb://localhost:27017/blog")
@@ -261,7 +261,7 @@ server.get("/:id", async (req, res) => {
     }
 });
 
-server.listen(9000, () => {
+server.listen(port, () => {
     console.log("connected");
 });
 
